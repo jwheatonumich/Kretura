@@ -10,7 +10,8 @@ function dataLoad(){
     "day":1, "caveday":0,"treeday":0,
     "acorncoin":0, "mushroomcoin":0, "bearclawcoin":0, "leafcoin":0,
     "ship-acorncoin":0,"ship-mushroomcoin":0,"ship-bearclawcoin":0,
-    "squirrelunlock":false,"mushroomunlock":false,"bearunlock":false}
+    "squirrelunlock":false,"mushroomunlock":false,"bearunlock":false,
+    "roguelike-level":1}
     playerStats["name"] = document.getElementById("name").value
 
     battleStatusData = {

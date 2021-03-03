@@ -11,7 +11,7 @@
 
         <!--Load CSS-->
         <link rel="stylesheet" href= "../stylesheets/navbar.css">
-        <link rel="stylesheet" href= "page-styles.css">
+        <link rel="stylesheet" href= "prebattle-styles.css">
         <link rel="stylesheet" href= "../stylesheets/standardlayout.css">
 
         <!--Standard page code-->
@@ -19,6 +19,11 @@
 
         <!--Standard page code-->
         <script src="../script/standard-script.js" defer></script>
+
+        <!--Page specific page code-->
+        <script src="./enemy-sequence.js"></script>
+        <script src="./prebattle-script.js" defer></script>
+        
     </head>
     
     <body>
@@ -58,13 +63,13 @@
 
             <div id="game-div">
                 <h1>Title</h1>
-                <div id="dryad-div">
-                    <img id="page-image" alt = "Dryad" src="../images/placeholder.png">
+                <div id="main-game-div">
+                    <img id="page-image" alt = "Page Image" src="../images/placeholder.png">
                 </div>
 
                 <p>Text</p>
                 <div id="control">
-                    <button id="back" class="button" onclick="location.href='../cave/cave.html';">Fight</button>
+                    <button id="fight-button" class="button">Fight</button>
                 </div>
 
             </div>
