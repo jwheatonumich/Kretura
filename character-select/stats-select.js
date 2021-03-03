@@ -47,7 +47,7 @@ function finalizeStats(){
         playerStats.health = playerStats.maxhealth;
         playerStats.leafcoin = 3;
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
-        setMandatoryPage('../prebattle/prebattle.html')
+        setMandatoryPage('../roguelike/prebattle.html')
     } else if (remainingStats > 0){
         document.getElementById("game-text").innerHTML = "Please distribute all stats"
     } else{
