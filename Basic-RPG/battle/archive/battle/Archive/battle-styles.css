@@ -1,0 +1,65 @@
+*{
+    font-size:32px;
+}
+
+.currency{
+    font-size:12px;
+    max-width: 70px;
+}
+
+#currency-table{
+    table-layout:fixed;
+
+    width: auto;
+    margin-right: 20px;
+    margin-left: auto;
+    margin-top: 10px;
+}
+
+.currency-number{
+    color:white;
+}
+
+#page-div {
+    max-width:90vw;
+}
+
+#game-div{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    grid-gap: 20px;
+
+    width: 500px;
+}
+
+#player-div, #enemy-div{
+    padding: 20px;
+    border: 2px solid red;
+}
+
+.game-text {
+    display:inline;
+}
+
+#control-div{
+    display:grid;
+    grid-template-columns:30vw 30vw;
+    grid-gap:0;
+    padding:0;
+}
+
+#battle-text-div{
+    border: 2px solid red;
+    width: 500px;
+    padding: 20px;
+}
+
+#enemies, #startBattle, #attack-button, #ability{
+    height: 5vh;
+    width: 30vw;
+    font-size:32px;
+}
+
+#enemy-image{
+    max-height:400px;
+}

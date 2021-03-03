@@ -1,0 +1,107 @@
+*{
+    font-size:1em;
+}
+
+body{
+    width:100%;
+    max-width:400px;
+    border:0;
+    padding:0;
+    margin:0;
+}
+
+#page-div {
+    border:0;
+    padding:0;
+
+    display:grid;
+
+    grid-template-areas:
+      "nav nav"
+      "character game";
+
+      grid-template-columns: 1fr 2fr;
+}
+
+#character-div{
+    grid-area:character;
+    border: solid black 1px;
+
+    text-align:center;
+}
+
+#game-div{
+    grid-area: game;
+
+    border: solid black 1px;
+
+    text-align:center;
+}
+
+#cost-table, #cost-table th, #cost-table td{
+    border: 1px black solid;
+    line-height:34px;
+}
+
+#character-image{
+    max-width:80px;
+}
+
+#page-image{
+    max-width:220px;
+}
+
+#enemy-image{
+    max-width:100px;
+}
+
+.item{
+    max-width: 40px;
+}
+
+.cost{
+    max-width:40px;
+}
+
+.pay-button{
+    max-width:40px;
+}
+
+.button{
+    width:120px;
+    padding: 10px 0px 10px 0px;
+    margin: 3px 0px 3px 0px;
+    font-size:.75em;
+}
+
+/*Dropdown for selecting an enemy*/
+#enemies{
+    padding:10px 10px 10px 10px
+}
+
+.map-image-link{
+    max-width:75px;
+}
+
+.link-image{
+    max-width:112px;
+}
+
+#cost-table{
+    margin: auto;
+    width:200px;
+}
+
+.button-link{
+    border: black solid 1px;
+    padding:20;
+    margin:5;
+    display:block;
+}
+
+.button-link-image{
+    border: black solid 1px;
+    padding:12;
+    margin:5;
+    display:block;
+}
