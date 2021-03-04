@@ -3,6 +3,14 @@ let currentLevel = playerStats["roguelike-level"];
 let enemyList = enemySequence[playerStats["roguelike-level"]].enemyList;
 let enemyCount = enemySequence[playerStats["roguelike-level"]].enemyCount;
 
+function setNextLevel(){
+    if(playerStats["roguelike-nextlevel"] === playerStats["roguelike-level"]){
+        playerStats["roguelike-nextlevel"]++;
+
+        localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
+    }
+}
+
 //When fight button is clicked, start the fight
 document.getElementById('fight-button').onclick = function() {
     startExplore(enemyList,enemyCount);

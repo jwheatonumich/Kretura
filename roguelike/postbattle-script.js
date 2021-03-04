@@ -15,5 +15,31 @@ function updatePageText(text,ID){
     gameTextPara.innerHTML = text;
 };
 
+
+
+function determineBattleResult(){
+    let result;
+
+    if (playerStats.health > 0){
+        result = "win";
+    }else{
+        result = "lose";
+    }
+
+    return result;
+}
+
+function determineLevel(){
+    if (battleResult === "win" && 
+    playerStats["roguelike-level"] < playerStats["roguelike-nextlevel"]){ //Prevent player from refreshing to increase stats/level
+        playerStats["roguelike-level"] ++;
+        playerStats.statpoints += 1;
+
+        localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
+    }
+}
+
 pageText = determinePageText(); //Store the value that will go in the primary text on page
+let battleResult = determineBattleResult();
+window.onload = determineLevel();
 window.onload = updatePageText(pageText,"game-text"); //On page load, update primary text on page

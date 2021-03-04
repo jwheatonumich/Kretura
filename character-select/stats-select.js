@@ -10,7 +10,7 @@ let attack = 5;
 let defense = 5;
 let endurance = 5;
 let totalStats = 30;
-let remainingStats = 15;
+let remainingStats = playerStats.statpoints;
 remainingStatsText.innerHTML = remainingStats;
 
 attackSlider.oninput = function() {
@@ -46,6 +46,7 @@ function finalizeStats(){
         playerStats.maxhealth = 4 * playerStats.endurance;
         playerStats.health = playerStats.maxhealth;
         playerStats.leafcoin = 3;
+        playerStats.statpoints = remainingStats;
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
         setMandatoryPage('roguelike/prebattle.html')
     } else if (remainingStats > 0){
