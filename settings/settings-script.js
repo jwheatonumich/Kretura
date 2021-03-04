@@ -8,7 +8,7 @@ function dataLoad(){
     playerStats = {"name":"Fred", "species":"gremlin", "image":"../images/little-goblin.png",
     "health":20, "maxhealth":20, "attack":5, "defense":5, "endurance":5, 
     "day":1, "caveday":0,"treeday":0,
-    "acorncoin":0, "mushroomcoin":0, "bearclawcoin":0, "leafcoin":0,
+    "acorncoin":0, "mushroomcoin":0, "bearclawcoin":0, "leafcoin":3,
     "ship-acorncoin":0,"ship-mushroomcoin":0,"ship-bearclawcoin":0,
     "squirrelunlock":false,"mushroomunlock":false,"bearunlock":false,
     "roguelike-level":1, "roguelike-nextlevel":2, "statpoints":15}

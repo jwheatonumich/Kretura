@@ -170,7 +170,6 @@ function finalizeStats(){
         playerStats.endurance =parseInt(endurance);
         playerStats.maxhealth = 4 * playerStats.endurance;
         playerStats.health += 4 * (endurance - initialEndurance);
-        playerStats.leafcoin = 3;
         playerStats.statpoints = remainingStats;
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
         setMandatoryPage('roguelike/prebattle.html')
