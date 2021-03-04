@@ -62,6 +62,7 @@ function newGame(){
     dataStore();
     setStats();
     setMandatoryPage('character-select/character-select.html');
+    window.location.href = targetPage;
 };
 
 //Load current player stats when the page loads

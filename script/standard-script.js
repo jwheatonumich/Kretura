@@ -278,7 +278,8 @@ function gotoMandatoryPage(){ //If a mandatory page is stored, go to it
 
     targetPage = JSON.parse(localStorage.getItem('mandatoryPage'));
 
-    if (!window.location.href.includes(targetPage.replace(/^\.*/g, ''))){ //Check if on the target page, ignoring any '.' at begining of the relative url
+    //if (!window.location.href.includes(targetPage.replace(/^\.*/g, ''))){ //Check if on the target page, ignoring any '.' at begining of the relative url
+    if (targetPage && !window.location.href.includes('settings') && !window.location.href.includes(targetPage)){ //Check if on the target page, ignoring any '.' at begining of the relative url
         window.location.href = targetPage;
     }
 
