@@ -266,7 +266,11 @@ function startExplore(inputEnemies, inputEnemyCount){ //Start the exploration ga
 };
 
 function setMandatoryPage(page){ //Store a mandatory page
-    localStorage.setItem('mandatoryPage', JSON.stringify(page));
+    currentURL = window.location.href; //Get the current page url
+    searchTerm = "Kretura/" //Search for the base Kretura folder
+    baseURL = currentURL.slice(0,currentURL.indexOf(searchTerm) + searchTerm.length); //Create a new URL to the base
+    newURL = baseURL + page; //Create a new URL that is the new base + the input page
+    localStorage.setItem('mandatoryPage', JSON.stringify(newURL)); //Store the new URL in local storage
     gotoMandatoryPage();
 }
 

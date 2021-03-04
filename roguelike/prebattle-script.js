@@ -7,7 +7,7 @@ let enemyCount = enemySequence[playerStats["roguelike-level"]].enemyCount;
 document.getElementById('fight-button').onclick = function() {
     startExplore(enemyList,enemyCount);
     
-    setMandatoryPage('./explore.html');
+    setMandatoryPage('roguelike/explore.html');
 
 };
 

@@ -37,7 +37,7 @@ endGame = function(){
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
         playerSetup();
         setStats();
-        setMandatoryPage('./postbattle.html');
+        setMandatoryPage('roguelike/postbattle.html');
 
         startBattle(enemyList,false,true,true);
     }
