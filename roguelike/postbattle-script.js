@@ -3,14 +3,6 @@ let currentLevel = playerStats["roguelike-level"];
 let enemyList = enemySequence[playerStats["roguelike-level"]].enemyList;
 let enemyCount = enemySequence[playerStats["roguelike-level"]].enemyCount;
 
-//When fight button is clicked, start the fight
-document.getElementById('fight-button').onclick = function() {
-    startExplore(enemyList,enemyCount);
-    
-    setMandatoryPage('./explore.html');
-
-};
-
 //Determine what shows-up in the text on page
 function determinePageText(){
     let pageText = `Level: ${currentLevel}`;
