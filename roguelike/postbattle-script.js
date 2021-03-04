@@ -15,8 +15,6 @@ function updatePageText(text,ID){
     gameTextPara.innerHTML = text;
 };
 
-
-
 function determineBattleResult(){
     let result;
 
@@ -33,7 +31,8 @@ function determineLevel(){
     if (battleResult === "win" && 
     playerStats["roguelike-level"] < playerStats["roguelike-nextlevel"]){ //Prevent player from refreshing to increase stats/level
         playerStats["roguelike-level"] ++;
-        playerStats.statpoints += 1;
+        playerStats.statpoints ++;
+        initiaizeStats();//Update stats on page
 
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
     }

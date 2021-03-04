@@ -6,7 +6,7 @@ var battleStatusData = ""
 //Function to set player stats variable to new game stats
 function dataLoad(){
     playerStats = {"name":"Fred", "species":"gremlin", "image":"../images/little-goblin.png",
-    "health":40, "maxhealth":40, "attack":10, "defense":10, "endurance":10, 
+    "health":20, "maxhealth":20, "attack":5, "defense":5, "endurance":5, 
     "day":1, "caveday":0,"treeday":0,
     "acorncoin":0, "mushroomcoin":0, "bearclawcoin":0, "leafcoin":0,
     "ship-acorncoin":0,"ship-mushroomcoin":0,"ship-bearclawcoin":0,

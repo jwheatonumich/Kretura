@@ -21,8 +21,10 @@
         <script src="../script/standard-script.js" defer></script>
 
         <!--Page specific page code-->
-        <script src="./enemy-sequence.js"></script>
         <script src="./postbattle-script.js" defer></script>
+        <script src= "../character-select/stats-select.js" defer></script>
+        <script src="./enemy-sequence.js"></script>
+        
         
     </head>
     
@@ -72,12 +74,12 @@
                     <p id = "game-text">Distribute your stats:</p><br>
           
                     <div class="slidecontainer">
-                      Attack:<label id="attackOutput">5</label><br>
-                      <input type="range" min="5" max="20" value="5" class="slider" id="attackInput"><br>
-                      Defense:<label id="defenseOutput">5</label><br>
-                      <input type="range" min="5" max="20" value="5" class="slider" id="defenseInput"><br>
-                      Endurance:<label id="enduranceOutput">5</label><br>
-                      <input type="range" min="5" max="20" value="5" class="slider" id="enduranceInput"><br>
+                        <input type="button" id="plusAttack" value="+"> <input type="button" id="minusAttack" value="-"> Attack:<label id="attackOutput">5</label><br>
+                        <input type="range" min="5" max="20" value="5" class="slider" id="attackInput"><br>
+                        <input type="button" id="plusDefense" value="+"> <input type="button" id="minusDefense" value="-"> Defense:<label id="defenseOutput">5</label><br>
+                        <input type="range" min="5" max="20" value="5" class="slider" id="defenseInput"><br>
+                        <input type="button" id="plusEndurance" value="+"> <input type="button" id="minusEndurance" value="-"> Endurance:<label id="enduranceOutput">5</label><br>
+                        <input type="range" min="5" max="20" value="5" class="slider" id="enduranceInput"><br>
                     </div>
                     <p>Remaining Stats:</p>
                     <p id = remainingStats>15</p>

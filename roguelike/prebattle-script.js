@@ -31,5 +31,6 @@ function updatePageText(text,ID){
     gameTextPara.innerHTML = text;
 };
 
+window.onload = setNextLevel();
 pageText = determinePageText(); //Store the value that will go in the primary text on page
 window.onload = updatePageText(pageText,"game-text"); //On page load, update primary text on page
