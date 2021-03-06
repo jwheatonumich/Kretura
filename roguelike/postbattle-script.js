@@ -33,13 +33,14 @@ function determineLevel(){
     playerStats["roguelike-level"] < playerStats["roguelike-nextlevel"]){ //Prevent player from refreshing to increase stats/level
         playerStats["roguelike-level"] ++;
         playerStats.statpoints ++;
+        remainingStats = playerStats.statpoints;
         initializeStats();//Update stats on page
 
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
     }
 }
 
-pageText = determinePageText(); //Store the value that will go in the primary text on page
 let battleResult = determineBattleResult();
 window.onload = determineLevel();
+pageText = determinePageText(); //Store the value that will go in the primary text on page
 window.onload = updatePageText(pageText,"game-text"); //On page load, update primary text on page
