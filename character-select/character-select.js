@@ -1,3 +1,19 @@
+//Load player data into a variable from local storage
+var retrievedObject = localStorage.getItem('storedPlayerStats');
+var playerStats = JSON.parse(retrievedObject)
+
+//Function that sets text on the website equal to various stat variables
+function setStats() {
+    
+    document.getElementById("acorn-coin").innerHTML = playerStats["acorncoin"];
+    document.getElementById("mushroom-coin").innerHTML = playerStats["mushroomcoin"];
+    document.getElementById("bearclaw-coin").innerHTML = playerStats["bearclawcoin"];
+    document.getElementById("leaf-coin").innerHTML = playerStats["leafcoin"];
+}
+
+//Load current player stats when the page loads
+window.onload = setStats();
+
 //Store images and links for options
 let option1Link = document.getElementById("option1-link");
 let option2Link = document.getElementById("option2-link");

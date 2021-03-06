@@ -1,3 +1,20 @@
+//Load player data into a variable from local storage
+var retrievedObject = localStorage.getItem('storedPlayerStats');
+var playerStats = JSON.parse(retrievedObject)
+
+//Function that sets text on the website equal to various stat variables
+function setStats() {
+    
+    document.getElementById("acorn-coin").innerHTML = playerStats["acorncoin"];
+    document.getElementById("mushroom-coin").innerHTML = playerStats["mushroomcoin"];
+    document.getElementById("bearclaw-coin").innerHTML = playerStats["bearclawcoin"];
+    document.getElementById("leaf-coin").innerHTML = playerStats["leafcoin"];
+}
+
+//Load current player stats when the page loads
+window.onload = setStats();
+
+//Load elements by ID
 var attackSlider = document.getElementById("attackInput");
 var defenseSlider = document.getElementById("defenseInput");
 var enduranceSlider = document.getElementById("enduranceInput");
@@ -14,19 +31,22 @@ var defenseText = document.getElementById("defenseOutput");
 var enduranceText = document.getElementById("enduranceOutput");
 var remainingStatsText = document.getElementById("remainingStats");
 
-
+//Define variables for stats
 let attack = playerStats.attack;
 let defense = playerStats.defense;
 let endurance = playerStats.endurance;
 
+//Define variables for the stats before changing
 let initialAttack = playerStats.attack;
 let initialDefense = playerStats.defense;
 let initialEndurance = playerStats.endurance;
 
+//Define variable for remaining stat points and display on page
 let remainingStats = playerStats.statpoints;
 remainingStatsText.innerHTML = remainingStats;
 
-function initiaizeStats(){
+//Display stats on page
+function initializeStats(){
     attackText.innerHTML = attack;
     attackSlider.value = attack;
     defenseText.innerHTML = defense;
@@ -36,13 +56,14 @@ function initiaizeStats(){
     remainingStatsText.innerHTML = playerStats.statpoints;
 }
 
+//Increase attack
 plusAttack.onclick = function() {
     if (remainingStats > 0){
         attack ++;
         attackText.innerHTML = attack;
         attackSlider.value = attack;
         remainingStats --;
-    }else
+    }else //Code to decrease another stat bar if no remaining stat points
         if(remainingStats === 0){
             if(defense > initialDefense){
                 attack ++;
@@ -63,6 +84,7 @@ plusAttack.onclick = function() {
         remainingStatsText.innerHTML = remainingStats;
 };
 
+//Decrease attack
 minusAttack.onclick = function() {
     if(attack > initialAttack){
         attack --;
@@ -73,6 +95,7 @@ minusAttack.onclick = function() {
     }
 };
 
+//Increase defense
 plusDefense.onclick = function() {
     if (remainingStats > 0){
         defense ++;
@@ -100,6 +123,7 @@ plusDefense.onclick = function() {
         remainingStatsText.innerHTML = remainingStats;
 };
 
+//Decrease defense
 minusDefense.onclick = function() {
     if(defense > initialDefense){
         defense --;
@@ -110,6 +134,7 @@ minusDefense.onclick = function() {
     }
 };
 
+//Increase endurance
 plusEndurance.onclick = function() {
     if (remainingStats > 0){
         endurance ++;
@@ -137,6 +162,7 @@ plusEndurance.onclick = function() {
         remainingStatsText.innerHTML = remainingStats;
 };
 
+//Decrease endurance
 minusEndurance.onclick = function() {
     if(endurance > initialEndurance){
         endurance --;
@@ -147,6 +173,7 @@ minusEndurance.onclick = function() {
     }
 };
 
+//Set slider values to matching variables
 attackSlider.oninput = function() {
     this.value = attack;
 };
@@ -159,19 +186,22 @@ enduranceSlider.oninput = function() {
     this.value = endurance;
 };
 
+//Calculate health as 4x endurance
 function healthCalc(){
     playerStats["maxhealth"] = 4 * playerStats["endurance"]
 };
 
+//Load updated stats into local storage
 function finalizeStats(){
     if (remainingStats == 0){
         playerStats.attack = parseInt(attack);
         playerStats.defense = parseInt(defense);
         playerStats.endurance =parseInt(endurance);
         playerStats.maxhealth = 4 * playerStats.endurance;
-        playerStats.health += 4 * (endurance - initialEndurance);
+        playerStats.health += 4 * (endurance - initialEndurance); //If endurance was increased, also add 4x to health
         playerStats.statpoints = remainingStats;
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
+
         setMandatoryPage('roguelike/prebattle.html')
     } else if (remainingStats > 0){
         document.getElementById("game-text").innerHTML = "Please distribute all stats"
@@ -180,4 +210,4 @@ function finalizeStats(){
     }
 }
 
-window.onload = initiaizeStats();
+window.onload = initializeStats();

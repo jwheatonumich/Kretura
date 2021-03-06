@@ -2,9 +2,23 @@
 var retrievedObject = localStorage.getItem('storedPlayerStats');
 var playerStats = JSON.parse(retrievedObject)
 var battleStatusData = ""
+let mode = "skirmish"
+
+function gameMode(){
+    var rad = document.userSettings.mode;
+    var prev = null;
+    for (var i = 0; i < rad.length; i++) {
+        rad[i].addEventListener('change', function() {
+            if (this !== prev) {
+                prev = this;
+            }
+            mode = this.value;
+        });
+    }
+}
 
 //Function to set player stats variable to new game stats
-function dataLoad(){
+function skirmishDataLoad(){
     playerStats = {"name":"Fred", "species":"gremlin", "image":"../images/little-goblin.png",
     "health":20, "maxhealth":20, "attack":5, "defense":5, "endurance":5, 
     "day":1, "caveday":0,"treeday":0,
@@ -13,6 +27,35 @@ function dataLoad(){
     "squirrelunlock":false,"mushroomunlock":false,"bearunlock":false,
     "roguelike-level":1, "roguelike-nextlevel":2, "statpoints":15}
     playerStats["name"] = document.getElementById("name").value
+    playerStats["mode"] = mode;
+
+    battleStatusData = {
+        "inProgress":false
+    };
+
+    battleSettings ={
+        "escape":true,
+        "singleBattle":false,
+        "mandatory":false
+    };
+
+    dailyEvents ={
+        sleep:true,
+        acornCatch:true
+    };
+
+};
+
+//Function to set player stats variable to new game stats
+function adventureDataLoad(){
+    playerStats = {"name":"Fred", "species":"gremlin", "image":"../images/little-goblin.png",
+    "health":40, "maxhealth":40, "attack":10, "defense":10, "endurance":10, 
+    "day":1, "caveday":0,"treeday":0,
+    "acorncoin":0, "mushroomcoin":0, "bearclawcoin":0, "leafcoin":3,
+    "ship-acorncoin":0,"ship-mushroomcoin":0,"ship-bearclawcoin":0,
+    "squirrelunlock":false,"mushroomunlock":false,"bearunlock":false}
+    playerStats["name"] = document.getElementById("name").value
+    playerStats["mode"] = mode;
 
     battleStatusData = {
         "inProgress":false
@@ -58,12 +101,24 @@ function setStats() {
 
 //Function that gets called when the new game button is clicked
 function newGame(){
-    dataLoad();
-    dataStore();
-    setStats();
-    setMandatoryPage('character-select/character-select.html');
-    window.location.href = targetPage;
+    if (mode === "skirmish"){
+        skirmishDataLoad();
+        dataStore();
+        setStats();
+        setMandatoryPage('character-select/character-select.html');
+        window.location.href = targetPage;
+    } else if (mode === "adventure"){
+        adventureDataLoad();
+        dataStore();
+        setStats();
+        clearMandatoryPage();
+        window.location.href = "../narrative/narrative.html";
+    } 
+
 };
 
 //Load current player stats when the page loads
 window.onload = setStats();
+
+//Add event listeners to update game modes on radio click
+window.onload = gameMode()

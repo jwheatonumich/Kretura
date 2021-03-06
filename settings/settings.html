@@ -50,9 +50,13 @@
 
         <div id="settings">
           <br>
-          <form>
+          <form name="userSettings">
             <label for="name">Name:</label><br><br>
-            <input type="text" id="name" name="name"><br>
+            <input type="text" id="name" name="name"><br><br>
+            <label for="adventure">Advendure Mode:</label>
+            <input type="radio" id="adventure" value="adventure" name="mode"><br>
+            <label for="skirmish">Skirmish Mode:</label>
+            <input type="radio" id="skirmish" value="skirmish" name="mode" checked><br>
           </form>
           <button class="button" onclick="newGame();">New Game</button>
         </div>

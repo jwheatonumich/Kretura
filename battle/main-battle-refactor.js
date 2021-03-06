@@ -58,8 +58,17 @@ func.flee = function(playerAlive,battleStatusData,escapeSetting,playerBattleStat
     if(battleStatusData.result == "game over"){
 
         //Game is over, go to start screen
-        func.gameOver();
-        window.location.href = JSON.parse(localStorage.getItem('lastPage'))[0];//Exit to the prior page
+        if(playerStats.mode === "adventure"){
+            func.gameOver();
+            window.location.href = '../spaceship-inside/control.html'
+        } else if(playerStats.mode === "skirmish"){
+            let currentURL = window.location.href; //Get the current page url
+            let searchTerm = "Kretura/" //Search for the base Kretura folder
+            let baseURL = currentURL.slice(0,currentURL.indexOf(searchTerm) + searchTerm.length); //Create a new URL to the base
+            let newURL = baseURL + "/settings/settings.html"; //Create a new URL that is the new base + the input page
+            localStorage.setItem('mandatoryPage', JSON.stringify(newURL)); //Store the new URL in local storage
+            window.location.href = newURL;
+        }
         return true;
 
     }else if(battleStatusData.result == "win"){
@@ -111,58 +120,57 @@ func.empty = function(){};//Empty function used when player cannot attack
 
 func.gameOver = function(){
 
-    //Reset player stats
-    playerStats.acorncoin = 0;
-    playerStats.attack = 10;
-    playerStats.bearclawcoin = 0;
-    playerStats.caveday = 0;
-    playerStats.day = 1;
-    playerStats.defense = 10;
-    playerStats.endurance = 10;
-    playerStats.health = 40;
-    playerStats.image = "../images/little-goblin.png";
-    playerStats.leafcoin = 3;
-    playerStats.maxhealth = 40;
-    playerStats.mushroomcoin = 0;
-    playerStats.species = "gremlin";
-    playerStats.treeday = 0;
+    if(playerStats.mode === "adventure"){
+        //Reset player stats
+        playerStats.acorncoin = 0;
+        playerStats.attack = 10;
+        playerStats.bearclawcoin = 0;
+        playerStats.caveday = 0;
+        playerStats.day = 1;
+        playerStats.defense = 10;
+        playerStats.endurance = 10;
+        playerStats.health = 40;
+        playerStats.image = "../images/little-goblin.png";
+        playerStats.leafcoin = 3;
+        playerStats.maxhealth = 40;
+        playerStats.mushroomcoin = 0;
+        playerStats.species = "gremlin";
+        playerStats.treeday = 0;
+
+        //Set daily events for first day
+        dailyEvents ={
+            sleep:false,
+            acornCatch:true
+        };
+
+        //Store daily events in local storage
+        localStorage.setItem('dailyEvents',  JSON.stringify(dailyEvents));
+
+        //Set battle status to false to prevent from being redirected into battle
+        //battleStatusData.inProgress = false;
+        battleStatusData.result = "";
+
+        //Load settings into global variables
+        battleSettingData.escape = true;
+        battleSettingData.singleBattle = false;
+        battleSettingData.mandatory = false;
+
+        //Set the control screen text
+        localStorage.setItem('controlScriptName', 'Dead');
+
+        //Can't load a new enemy
+        document.getElementById("restart-button").setAttribute('onClick',"func.empty();");
+    }
+
 
     //Store the updated data object in local storage, after turning the JSON to a string
     localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
 
-    //Set daily events for first day
-    dailyEvents ={
-        sleep:false,
-        acornCatch:true
-    };
-
-    //Store daily events in local storage
-    localStorage.setItem('dailyEvents',  JSON.stringify(dailyEvents));
-
-    //Set battle status to false to prevent from being redirected into battle
-    //battleStatusData.inProgress = false;
-    battleStatusData.result = "";
-
-
     //Store daily events in local storage
     localStorage.setItem('battleStatusData',  JSON.stringify(battleStatusData));
 
-    //Load settings into global variables
-    battleSettingData.escape = true;
-    battleSettingData.singleBattle = false;
-    battleSettingData.mandatory = false;
-
     localStorage.setItem('battleSettings',  JSON.stringify(battleSettingData));
 
-    //Can't load a new enemy
-    document.getElementById("restart-button").setAttribute('onClick',"func.empty();");
-
-    //Back button redirects to spaceship
-    document.getElementById("back-button").setAttribute('onClick',"location.href='../spaceship-inside/control.html';");
-
-    //Set the control screen text
-    localStorage.setItem('controlScriptName', 'Dead');
-    
     return; //Stop the function
 
 };
@@ -980,9 +988,11 @@ func.attack = function(playerAbility){
 
     //Determine the battle result
     battleStatusData = func.determineBattleResult(battleStatusData);
+    console.log(battleStatusData.result)
 
     //End the turn
     func.executeTurnEnd();
+    console.log(battleStatusData.result)
 
     //Convert battle text array to a string
     if(battleData.battleText == ""){battleData.battleText = func.arrayToString(battleData.battleTextArray, true)};

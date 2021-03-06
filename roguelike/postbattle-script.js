@@ -3,6 +3,7 @@ let currentLevel = playerStats["roguelike-level"];
 let enemyList = enemySequence[playerStats["roguelike-level"]].enemyList;
 let enemyCount = enemySequence[playerStats["roguelike-level"]].enemyCount;
 
+
 //Determine what shows-up in the text on page
 function determinePageText(){
     let pageText = `Level: ${currentLevel}`;
@@ -32,7 +33,7 @@ function determineLevel(){
     playerStats["roguelike-level"] < playerStats["roguelike-nextlevel"]){ //Prevent player from refreshing to increase stats/level
         playerStats["roguelike-level"] ++;
         playerStats.statpoints ++;
-        initiaizeStats();//Update stats on page
+        initializeStats();//Update stats on page
 
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
     }
