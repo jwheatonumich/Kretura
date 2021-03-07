@@ -55,6 +55,9 @@ func.storeDefaultSettings = function(){
 };
 
 func.flee = function(playerAlive,battleStatusData,escapeSetting,playerBattleStats){
+
+    localStorage.setItem('battleOutcome',battleStatusData.result);
+
     if(battleStatusData.result == "game over"){
 
         //Game is over, go to start screen

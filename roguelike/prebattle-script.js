@@ -1,7 +1,10 @@
 //Store data for the current level
 let currentLevel = playerStats["roguelike-level"];
-let enemyList = enemySequence[playerStats["roguelike-level"]].enemyList;
-let enemyCount = enemySequence[playerStats["roguelike-level"]].enemyCount;
+let levelData = enemySequence[playerStats["roguelike-level"]-1];
+let levelName = levelData.levelName;
+let pageImage = levelData.levelImage;
+let enemyList = levelData.enemyList;
+let enemyCount = levelData.enemyCount;
 
 function setNextLevel(){
     if(playerStats["roguelike-nextlevel"] === playerStats["roguelike-level"]){
@@ -31,6 +34,16 @@ function updatePageText(text,ID){
     gameTextPara.innerHTML = text;
 };
 
+//Function to update the image of an element on the page
+function updateImage(image,ID){
+    gameTextPara = document.getElementById(ID);
+    gameTextPara.src = image;
+};
+
 window.onload = setNextLevel();
 pageText = determinePageText(); //Store the value that will go in the primary text on page
-window.onload = updatePageText(pageText,"game-text"); //On page load, update primary text on page
+
+//Update page content based on level
+window.onload = updatePageText(pageText,"game-text");
+window.onload = updatePageText(levelName,"level-name");
+window.onload = updateImage(pageImage,"page-image");
