@@ -202,11 +202,16 @@ function finalizeStats(){
         playerStats.statpoints = remainingStats;
         localStorage.setItem('storedPlayerStats', JSON.stringify(playerStats));
 
-        setMandatoryPage('roguelike/prebattle.html')
     } else if (remainingStats > 0){
         document.getElementById("game-text").innerHTML = "Please distribute all stats"
     } else{
         document.getElementById("game-text").innerHTML = "Not enough stats points"
+    }
+}
+
+function nextPage(){
+    if (remainingStats == 0){
+        setMandatoryPage('roguelike/prebattle.html')
     }
 }
 

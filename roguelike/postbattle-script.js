@@ -71,6 +71,31 @@ function incrementLevel(){
     playerStats["roguelike-level"] ++;
 }
 
+function eventCheck(){
+
+    let event = false;
+
+    for (i in eventSequence){
+        if (eventSequence[i].level === playerStats["roguelike-level"] -1){
+            event = true;
+        }
+    }
+
+    return event;
+}
+
+function determineNextPage(){
+
+    let event = eventCheck();
+
+    if (event){
+        setMandatoryPage('roguelike/event.html')
+    } else{
+        setMandatoryPage('roguelike/prebattle.html')
+    }
+
+}
+
 window.onload = initialDataLoad();
 window.onload = adjustSliders();
 let battleResult = determineBattleResult();
