@@ -14,12 +14,14 @@
           <link rel="stylesheet" href= "../stylesheets/navbar.css">
           <link rel="stylesheet" href= "../stylesheets/standardlayout.css">
 
-
-          <script src="event.js" defer></script>
-
           <!--Standard page code-->
           <script src="../script/daily-events-script.js"></script>
           <script src="../script/standard-script.js" defer></script>
+
+          <!--Page specific code-->
+          <script src="event-sequence.js"></script>
+          <script src="event-train.js"></script>
+          <script src="event.js" defer></script>
         </head>
     
     <body>
@@ -59,9 +61,10 @@
           </div>
 
           <div id="game-div">
-          <h1>Squirrel Ninja Academy</h1>
+          <h1 id="title">Squirrel Ninja Academy</h1>
             <div id="trainer-div">
-              <a id="squirrel-link" onClick="narrativeStore('SquirrelMaser1');"><img id="page-image" alt = "Trainer" src="../images/squirrel-trainer.png"></a>
+              <img id="page-image" alt = "Trainer" src="../images/squirrel-trainer.png">
+              <p id="page-text"></p>
             </div>
 
             <div id="cost-table-div">
@@ -84,18 +87,13 @@
                   <th>Endurance</th>
                   <th><a onClick="acornTraining('endurance')" href=?><img class = "cost" alt = "Acorn Coins" src="../images/acorn-coin.png"><img class = "cost" alt = "Acorn Coins" src="../images/acorn-coin.png"><img class = "cost" alt = "Acorn Coins" src="../images/acorn-coin.png"></a></th>
                 </tr>
-                
-                <tr>
-                  <th>Transform</th>
-                  <th><a class="pay-link" onClick="transform();" href=?>50x<img class="pay-button"  alt = "Mushroom Coins" src="../images/acorn-coin.png"><img></a></th>
-                </tr>
 
                 </table>
               </div>
 
                 <div id="control-div">
 
-                  <button id="back" class="button" onclick="location.href='../tree/tree.html';">Back</button>
+                  <button id="done-training" class="button" onclick="location.href='./prebattle.html';">Done Training</button>
 
                 </div>
             </div>
