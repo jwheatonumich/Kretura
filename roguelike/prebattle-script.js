@@ -14,14 +14,6 @@ function setNextLevel(){
     }
 }
 
-//When fight button is clicked, start the fight
-document.getElementById('fight-button').onclick = function() {
-    startExplore(enemyList,enemyCount);
-    
-    setMandatoryPage('roguelike/explore.html');
-
-};
-
 //Determine what shows-up in the text on page
 function determinePageText(){
     let pageText = `Level: ${currentLevel}`;
