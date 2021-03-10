@@ -16,12 +16,11 @@
 
         <!--Standard page code-->
         <script src="../script/daily-events-script.js"></script>
-
-        <!--Standard page code-->
         <script src="../script/standard-script.js" defer></script>
 
         <!--Page specific page code-->
         <script src="./enemy-sequence.js"></script>
+        <script src="../script/enemy-data.js" defer></script>
         <script src="./prebattle-script.js" defer></script>
         
     </head>
@@ -64,9 +63,16 @@
                 <h1 id="level-name">Title</h1>
                 <div id="main-game-div">
                     <img id="page-image" alt = "Page Image" src="../images/placeholder.png">
+                    <p id="game-text">Text</p>
+                    <p>Choose an enemy:</p>
+                    <div id="enemy-choice">
+                        <a id="enemy1-link"><img id="enemy1-image" class="enemy-choice" src="../images/placeholder.png"></a>
+                        <a id="enemy2-link"><img id="enemy2-image" class="enemy-choice" src="../images/placeholder.png"></a>
+                        <a id="enemy3-link"><img id="enemy3-image" class="enemy-choice" src="../images/placeholder.png"></a>
+                    </div>
                 </div>
 
-                <p id="game-text">Text</p>
+
                 <div id="control">
                     <button id="fight-button" class="button">Fight</button>
                 </div>
