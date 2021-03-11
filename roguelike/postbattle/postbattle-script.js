@@ -89,9 +89,9 @@ function determineNextPage(){
     let event = eventCheck();
 
     if (event){
-        setMandatoryPage('roguelike/event.html')
+        setMandatoryPage('roguelike/event/event.html')
     } else{
-        setMandatoryPage('roguelike/prebattle.html')
+        setMandatoryPage('roguelike/prebattle/prebattle.html')
     }
 
 }

@@ -90,17 +90,10 @@ function updateEnemyChoiceLinks(){
     enemy3OnClick = [enemyStats[findEnemyById(chosenEnemiesList[2])]["enemyID"]]
 
     //Set on click of each enemy image to start battle with that enemy
-    document.getElementById('enemy1-link').onclick = function() {setMandatoryPage('roguelike/postbattle.html');startBattle(enemy1OnClick,false,true,true);};
-    document.getElementById('enemy2-link').onclick = function() {setMandatoryPage('roguelike/postbattle.html');startBattle(enemy2OnClick,false,true,true);};
-    document.getElementById('enemy3-link').onclick = function() {setMandatoryPage('roguelike/postbattle.html');startBattle(enemy3OnClick,false,true,true);};
+    document.getElementById('enemy1-link').onclick = function() {setMandatoryPage('roguelike/postbattle/postbattle.html');startBattle(enemy1OnClick,false,true,true);};
+    document.getElementById('enemy2-link').onclick = function() {setMandatoryPage('roguelike/postbattle/postbattle.html');startBattle(enemy2OnClick,false,true,true);};
+    document.getElementById('enemy3-link').onclick = function() {setMandatoryPage('roguelike/postbattle/postbattle.html');startBattle(enemy3OnClick,false,true,true);};
     
-}
-
-//Function to update battle start code with correct enemies
-function updateBattleStart(){
-
-
-
 }
 
 window.onload = setNextLevel();

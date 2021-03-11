@@ -91,5 +91,5 @@ updatePageText(eventData.eventText,"page-text")
 updateTrainingLinks();
 
 document.getElementById('done-training').onclick = function() {    
-    setMandatoryPage('roguelike/prebattle.html');
+    setMandatoryPage('roguelike/prebattle/prebattle.html');
 };

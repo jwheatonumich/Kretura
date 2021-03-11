@@ -11,21 +11,16 @@
 
         <!--Load CSS-->
         <link rel="stylesheet" href= "../stylesheets/navbar.css">
-        <link rel="stylesheet" href= "postbattle-styles.css">
+        <link rel="stylesheet" href= "prebattle-styles.css">
         <link rel="stylesheet" href= "../stylesheets/standardlayout.css">
 
         <!--Standard page code-->
-        <script src="../script/daily-events-script.js"></script>
+        <script src="../script/standard-script.js" defer></script>
 
         <!--Page specific page code-->
-        <script src= "../character-select/stats-select.js" defer></script>
-        <script src="./postbattle-script.js" defer></script>
-        <script src="./enemy-sequence.js"></script>
-        <script src="./event-sequence.js"></script>
-
-        <!--Standard page code-->
-        <script src="../script/standard-script.js" defer></script>
-        
+        <script src="../script/enemy-sequence.js"></script>
+        <script src="../script/enemy-data.js" defer></script>
+        <script src="prebattle-script.js" defer></script>
         
     </head>
     
@@ -67,28 +62,18 @@
                 <h1 id="level-name">Title</h1>
                 <div id="main-game-div">
                     <img id="page-image" alt = "Page Image" src="../images/placeholder.png">
+                    <p id="game-text">Text</p>
+                    <p>Choose an enemy:</p>
+                    <div id="enemy-choice">
+                        <a id="enemy1-link"><img id="enemy1-image" class="enemy-choice" src="../images/placeholder.png"></a>
+                        <a id="enemy2-link"><img id="enemy2-image" class="enemy-choice" src="../images/placeholder.png"></a>
+                        <a id="enemy3-link"><img id="enemy3-image" class="enemy-choice" src="../images/placeholder.png"></a>
+                    </div>
                 </div>
 
-                <p id="game-text">Text</p>
 
-                <div id="stats-div">
-                    <p id = "game-text">Distribute your stats:</p><br>
-          
-                    <div class="slidecontainer">
-                        <input type="button" id="plusAttack" value="+"> <input type="button" id="minusAttack" value="-"> Attack:<label id="attackOutput">5</label><br>
-                        <input type="range" min="5" max="20" value="5" class="slider" id="attackInput"><br>
-                        <input type="button" id="plusDefense" value="+"> <input type="button" id="minusDefense" value="-"> Defense:<label id="defenseOutput">5</label><br>
-                        <input type="range" min="5" max="20" value="5" class="slider" id="defenseInput"><br>
-                        <input type="button" id="plusEndurance" value="+"> <input type="button" id="minusEndurance" value="-"> Endurance:<label id="enduranceOutput">5</label><br>
-                        <input type="range" min="5" max="20" value="5" class="slider" id="enduranceInput"><br>
-                    </div>
-                    <p>Remaining Stats:</p>
-                    <p id = remainingStats>15</p>
-          
-                  </div>
-          
-                  <br>
-                  <button class="button" onclick="incrementLevel();finalizeStats();determineNextPage();">Finalize Stats</button>
+                <div id="control">
+                </div>
 
             </div>
 
